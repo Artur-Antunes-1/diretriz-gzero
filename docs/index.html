@@ -80,39 +80,38 @@ a{color:var(--gz-rosa-spray)}
 /* estrela de 8 pontas — glifo-assinatura */
 .star8{display:inline-block;width:1em;height:1em;vertical-align:-0.1em}
 
-/* ---------- ILUSTRAÇÕES (auxiliares, pequenas, na lateral) ---------- */
-.hero-art{
-  width:190px;aspect-ratio:1;object-fit:cover;display:block;
-  border-radius:var(--gz-radius-sticker);
-  transform:rotate(2.5deg);
-  box-shadow:0 0 18px rgba(232,56,168,.45),0 0 40px rgba(232,56,168,.2);
-  position:absolute;right:6%;top:170px;
+/* ---------- ILUSTRAÇÕES (auxiliares, laterais) ---------- */
+.hero-art{ /* funde-se ao palco: sem borda, sem caixa, esfumado nas bordas */
+  width:min(340px,30vw);height:auto;display:block;
+  position:absolute;right:3%;top:110px;
+  mask-image:radial-gradient(ellipse 60% 60% at 50% 47%,#000 52%,transparent 76%);
+  -webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 47%,#000 52%,transparent 76%);
 }
-@media (max-width:1100px){
-  .hero-art{position:static;margin:30px auto 0;width:160px;transform:rotate(-2deg)}
+@media (max-width:1150px){
+  .hero-art{position:static;margin:18px auto 0;width:250px}
 }
-.aux-fig{ /* quadradinho auxiliar da margem, como um adesivo colado */
-  margin:0 0 40px;transform:rotate(1.8deg);
+.aux-fig{ /* figura de apoio na margem, proporção natural */
+  margin:0 0 40px;transform:rotate(1.5deg);
 }
 .aux-fig img{
-  display:block;width:100%;max-width:190px;aspect-ratio:1;object-fit:contain;
+  display:block;width:100%;height:auto;
   background:var(--gz-branco-reserva);
   border:3px double var(--gz-rosa-spray);padding:4px;
   box-shadow:var(--gz-shadow-sticker);
 }
 .aux-fig figcaption{
   font-family:var(--gz-font-lettering);color:var(--gz-teal-marginalia);
-  font-size:.95rem;line-height:1.3;padding-top:8px;max-width:190px;
+  font-size:.95rem;line-height:1.3;padding-top:8px;
 }
 @media (max-width:860px){
-  .aux-fig{transform:rotate(-1.5deg);margin:10px 0 30px}
+  .aux-fig{transform:rotate(-1.2deg);margin:10px auto 30px;max-width:300px}
 }
-.spray-art{
-  width:150px;aspect-ratio:1;object-fit:cover;flex-shrink:0;transform:rotate(3deg);
+.spray-art{ /* mesma altura do texto do card, lado direito */
+  width:100%;height:100%;min-height:210px;object-fit:cover;
   border-radius:var(--gz-radius-sticker);
-  box-shadow:0 0 18px rgba(232,56,168,.45);
+  display:block;
 }
-@media (max-width:640px){.spray-art{width:110px;margin:0 auto}}
+@media (max-width:640px){.spray-art{height:auto;min-height:0;max-width:260px;margin:0 auto}}
 
 /* ============================================================
    HERO — MODO B (NEON ESCURO): "apaga a luz e acende o neon"
@@ -182,8 +181,8 @@ a{color:var(--gz-rosa-spray)}
    ============================================================ */
 main{background:var(--gz-creme-editorial)}
 .pagina{
-  max-width:1060px;margin:0 auto;padding:72px 24px;
-  display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:0 48px;
+  max-width:1080px;margin:0 auto;padding:72px 24px;
+  display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:0 48px;
   position:relative;
 }
 @media (max-width:860px){.pagina{grid-template-columns:1fr}}
@@ -360,11 +359,10 @@ main{background:var(--gz-creme-editorial)}
 .pacote{
   margin-top:44px;background:var(--gz-preto-prensa);
   border:2px dashed var(--gz-menta-fantasma);
-  border-radius:var(--gz-radius-sticker);padding:28px 26px;
-  display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;
+  border-radius:var(--gz-radius-sticker);padding:26px;
+  display:grid;grid-template-columns:1fr 220px;gap:26px;align-items:stretch;
 }
 @media (max-width:640px){.pacote{grid-template-columns:1fr}}
-.pacote .estrela{width:64px;height:64px;color:var(--gz-poeira-estrela);flex-shrink:0}
 .pacote h3{font-family:var(--gz-font-display);text-transform:uppercase;font-size:1.25rem;margin-bottom:8px;color:var(--gz-menta-fantasma)}
 .pacote p{font-size:.95rem;color:#DAD3D6;margin-bottom:6px}
 
@@ -397,7 +395,7 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
   <h1><span class="eco" data-t="DIRETRIZ">DIRETRIZ</span></h1>
   <span class="assinatura">de desenvolvimento gzero</span>
   <p class="promessa">Você imagina. A inteligência artificial constrói. E <strong>nada se perde no caminho</strong>.</p>
-  <img class="hero-art" src="img/hero-astronauta.webp" alt="Menino-astronauta com gorro de bobo da corte flutuando em gravidade zero, abraçado a um caderno rosa que brilha" width="1024" height="1024">
+  <img class="hero-art" src="img/hero-astronauta.webp" alt="Bobo da corte astronauta flutuando em gravidade zero, abraçado a um caderno rosa que brilha" width="2048" height="2048">
   <div class="cta-row">
     <a class="btn btn-rosa" href="#comecar">Quero usar</a>
     <a class="btn btn-ghost" href="#oque">Entender primeiro</a>
@@ -433,7 +431,7 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
   </div>
   <aside class="margem">
     <figure class="aux-fig">
-      <img src="img/prancha-lousa.webp" alt="Ilustração: uma lousa sendo apagada por um apagador travesso, e um caderno rosa de coroa guardando corações e estrelas" width="1024" height="1024">
+      <img src="img/prancha-lousa.webp" alt="Ilustração: uma lousa sendo apagada por um apagador travesso, e um caderno rosa de coroa guardando corações e estrelas" width="1280" height="832">
       <figcaption>a lousa apaga.<br>o caderno, não!</figcaption>
     </figure>
     <div class="nota-margem">
@@ -682,13 +680,13 @@ continuar</code>
     </div>
 
     <div class="pacote">
-      <img class="spray-art" src="img/spray-estrela.webp" alt="Lata de spray rosa com rosto de cartum desenhando uma estrela em neon com explosão de meio-tom" width="1024" height="1024">
       <div>
         <h3>Bônus do pacote: o Design System GZero</h3>
         <p>Junto com a Diretriz vai o kit visual oficial da casa: as cores, as fontes e o estilo que você está vendo nesta página. Na fase de ideação, uma das propostas visuais pode nascer <strong>com a cara da GZero</strong>, pronta.</p>
         <p><strong>É sugestão, não obrigação:</strong> cada projeto escolhe livremente a própria cara. O kit está lá para quando quiser — <span style="font-family:var(--gz-font-lettering);color:var(--gz-rosa-neon)">com amor &amp; spray rosa</span>.</p>
         <p><a href="https://gzero-design-system.vercel.app/" target="_blank" rel="noopener" style="color:var(--gz-menta-fantasma);font-weight:700">Conheça o Design System GZero completo →</a></p>
       </div>
+      <img class="spray-art" src="img/spray-estrela.webp" alt="Lata de spray rosa com rosto de cartum desenhando uma estrela em neon com explosão de meio-tom" width="2048" height="2048">
     </div>
   </div>
 </section>
