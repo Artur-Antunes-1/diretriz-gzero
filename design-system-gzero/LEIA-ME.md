@@ -13,7 +13,7 @@ Conteúdo (destilado do repositório GZERO-DESIGN-SYSTEM, fonte da verdade):
 | `design-system-gzero.md` | O design system completo: cores com nomes próprios, tipografia, combinações permitidas e proibidas, componentes |
 | `estilo-artistico-gzero.md` | A direção de arte: o traço, os motivos, as texturas, os dois modos |
 | `guia-prompts-gzero.md` | Receitas para gerar imagens no estilo GZero com IA |
-| `fontes/` | Subsets reais das fontes da marca (Atkinson Hyperlegible — OFL, Salted — Fontshare, Hepta Slab — OFL, Home Video — freeware), para uso interno da comunidade GZero |
+| `fontes/` | Fontes da marca para uso interno da comunidade GZero: Atkinson Hyperlegible (OFL), Tanker (display oficial, Fontshare), Shantell Sans (OFL — a voz manuscrita na web), Hepta Slab (OFL), Home Video (freeware). Nota: `Salted-Regular.ttf` é um subset extraído dos PDFs **sem tabela cmap** — guardado como registro histórico, mas inutilizável em navegadores; use Shantell Sans no lugar |
 
 ## Regras de ouro do visual GZero (resumo para a IA que for usar)
 

@@ -14,13 +14,18 @@
    "com amor & spray rosa"
    ============================================================ */
 
-/* ---------- FONTES REAIS DA MARCA (hospedadas junto ao site) ---------- */
-@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:"Salted";src:url("fonts/Salted-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:"Hepta Slab";src:url("fonts/HeptaSlab-ExtraLight.ttf") format("truetype");font-weight:200;font-display:swap}
-@font-face{font-family:"Home Video";src:url("fonts/HomeVideo-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+/* ---------- FONTES DA MARCA (hospedadas junto ao site) ----------
+   Tanker: display oficial (Fontshare), agora embarcada de verdade.
+   Shantell Sans (OFL): a voz manuscrita — o subset da Salted extraído
+   dos PDFs veio sem tabela cmap (inutilizável em qualquer navegador);
+   o próprio design system prevê o fallback "outra script marcador". */
+@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Tanker";src:url("fonts/Tanker.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Shantell Sans";src:url("fonts/ShantellSans.woff2") format("woff2");font-weight:300 800;font-display:swap}
+@font-face{font-family:"Hepta Slab";src:url("fonts/HeptaSlab.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"VT323";src:url("fonts/VT323.woff2") format("woff2");font-weight:400;font-display:swap}
 
 /* ---------- TOKENS GZERO (núcleo, de tokens.css oficial) ---------- */
 :root{
@@ -42,10 +47,10 @@
   --gz-poeira-estrela:#F8F8A8;
 
   --gz-font-corpo:"Atkinson Hyperlegible",system-ui,sans-serif;
-  --gz-font-display:"Tanker","Anton",Impact,"Arial Narrow",sans-serif;
-  --gz-font-lettering:"Salted","Bradley Hand","Segoe Script",cursive;
-  --gz-font-slab:"Hepta Slab",Rockwell,serif;
-  --gz-font-vhs:"Home Video","VT323",monospace;
+  --gz-font-display:"Tanker","Avenir Next Condensed",Impact,"Arial Narrow",sans-serif;
+  --gz-font-lettering:"Shantell Sans","Bradley Hand","Segoe Script",cursive;
+  --gz-font-slab:"Hepta Slab",Rockwell,"Times New Roman",serif;
+  --gz-font-vhs:"VT323","Courier New",monospace;
   --gz-font-codigo:"Menlo","Consolas","Courier New",monospace;
 
   --gz-glow-neon:0 0 12px rgba(232,56,168,.75),0 0 28px rgba(232,56,168,.45);
