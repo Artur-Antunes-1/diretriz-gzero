@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diretriz GZero — Você imagina. A IA constrói. Nada se perde.</title>
+<meta name="description" content="A metodologia da Gravidade Zero para criar projetos com o Claude Code — explicada do zero, para qualquer pessoa.">
+<style>
+/* ============================================================
+   DIRETRIZ GZERO — SITE
+   Construído sobre o GZERO DESIGN SYSTEM v1.0 (tokens oficiais).
+   Modo A (Editorial Claro) para leitura · Modo B (Neon Escuro)
+   para abertura e clímax. Meio-tom no lugar de gradiente, sempre.
+   "com amor & spray rosa"
+   ============================================================ */
+
+/* ---------- FONTES REAIS (subsets extraídos dos livros) ---------- */
+@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/AtkinsonHyperlegible-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Salted";src:url("fonts/Salted-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Hepta Slab";src:url("fonts/HeptaSlab-ExtraLight.ttf") format("truetype");font-weight:200;font-display:swap}
+@font-face{font-family:"Home Video";src:url("fonts/HomeVideo-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+
+/* ---------- TOKENS GZERO (núcleo, de tokens.css oficial) ---------- */
+:root{
+  --gz-rosa-spray:#EC008C;
+  --gz-creme-editorial:#FFF7EF;
+  --gz-preto-prensa:#231F20;
+  --gz-branco-reserva:#FFFFFF;
+  --gz-roxo-realce:#9643FC;
+  --gz-teal-marginalia:#00AAB3;
+  --gz-rosa-blush:#EF5BA1;
+  --gz-rosa-nevoa:#FCDFEB;
+  --gz-grifo-highlight:rgba(150,67,252,.28);
+
+  --gz-preto-palco:#080808;
+  --gz-rosa-neon:#E838A8;
+  --gz-lima-acida:#A8C838;
+  --gz-menta-fantasma:#68F8A8;
+  --gz-indigo-noite:#483868;
+  --gz-poeira-estrela:#F8F8A8;
+
+  --gz-font-corpo:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --gz-font-display:"Tanker","Anton",Impact,"Arial Narrow",sans-serif;
+  --gz-font-lettering:"Salted","Bradley Hand","Segoe Script",cursive;
+  --gz-font-slab:"Hepta Slab",Rockwell,serif;
+  --gz-font-vhs:"Home Video","VT323",monospace;
+  --gz-font-codigo:"Menlo","Consolas","Courier New",monospace;
+
+  --gz-glow-neon:0 0 12px rgba(232,56,168,.75),0 0 28px rgba(232,56,168,.45);
+  --gz-shadow-sticker:0 6px 18px rgba(35,31,32,.18);
+  --gz-radius-sticker:20px;
+  --gz-measure:52ch;
+}
+
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--gz-creme-editorial);
+  color:var(--gz-preto-prensa);
+  font-family:var(--gz-font-corpo);
+  font-size:18px;
+  line-height:1.5;
+}
+img,svg{max-width:100%}
+a{color:var(--gz-rosa-spray)}
+::selection{background:var(--gz-grifo-highlight)}
+
+/* ---------- HELPERS DO SISTEMA ---------- */
+.grifo{background:var(--gz-grifo-highlight);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.grifo-lima{background:rgba(168,200,56,.3);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.voz-bobo{font-family:var(--gz-font-lettering);color:var(--gz-teal-marginalia)}
+.rosa{color:var(--gz-rosa-spray)}
+
+/* retícula de meio-tom (nunca gradiente!) */
+.halftone-rosa{background-image:radial-gradient(circle,var(--gz-rosa-spray) 1.1px,transparent 1.4px);background-size:9px 9px}
+.halftone-claro{background-image:radial-gradient(circle,rgba(236,0,140,.16) 1.1px,transparent 1.4px);background-size:8px 8px}
+
+/* estrela de 8 pontas — glifo-assinatura */
+.star8{display:inline-block;width:1em;height:1em;vertical-align:-0.1em}
+
+/* ============================================================
+   HERO — MODO B (NEON ESCURO): "apaga a luz e acende o neon"
+   ============================================================ */
+.hero{
+  background:var(--gz-preto-palco);
+  color:var(--gz-branco-reserva);
+  padding:88px 24px 96px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+.hero::before{ /* retícula de palco */
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(232,56,168,.22) 1.2px,transparent 1.5px);
+  background-size:12px 12px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 20%,transparent 75%);
+  pointer-events:none;
+}
+.hero-kicker{
+  font-family:var(--gz-font-vhs);
+  color:var(--gz-menta-fantasma);
+  letter-spacing:.14em;
+  font-size:.95rem;
+  text-transform:uppercase;
+}
+.hero h1{
+  font-family:var(--gz-font-display);
+  font-size:clamp(3rem,10vw,6.4rem);
+  line-height:.95;
+  text-transform:uppercase;
+  letter-spacing:.01em;
+  margin:26px auto 10px;
+  color:var(--gz-branco-reserva);
+  position:relative;
+}
+.hero h1 .eco{ /* desregistro proposital: eco deslocado */
+  position:relative;display:inline-block;color:var(--gz-branco-reserva);
+}
+.hero h1 .eco::before{
+  content:attr(data-t);position:absolute;left:3px;top:3px;width:100%;
+  color:var(--gz-rosa-neon);z-index:-1;text-shadow:var(--gz-glow-neon);
+}
+.hero .assinatura{
+  font-family:var(--gz-font-lettering);
+  font-size:clamp(1.5rem,4.5vw,2.6rem);
+  color:var(--gz-rosa-neon);
+  text-shadow:var(--gz-glow-neon);
+  display:block;margin:6px 0 30px;
+}
+.hero .promessa{
+  font-size:1.15rem;max-width:34ch;margin:0 auto 40px;color:#EDE7E9;
+}
+.hero .sparks{position:absolute;pointer-events:none;color:var(--gz-poeira-estrela)}
+.hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn{
+  display:inline-block;text-decoration:none;
+  font-family:var(--gz-font-display);text-transform:uppercase;letter-spacing:.06em;
+  padding:14px 28px;border-radius:999px;font-size:1.05rem;
+}
+.btn-rosa{background:var(--gz-rosa-spray);color:var(--gz-branco-reserva);box-shadow:var(--gz-glow-neon)}
+.btn-ghost{border:2px solid var(--gz-menta-fantasma);color:var(--gz-menta-fantasma)}
+.hero .rodape-vhs{
+  margin-top:56px;font-family:var(--gz-font-vhs);font-size:.85rem;color:#8d8d8d;letter-spacing:.1em;
+}
+
+/* ============================================================
+   MIOLO — MODO A (EDITORIAL CLARO): a leitura, o argumento
+   ============================================================ */
+main{background:var(--gz-creme-editorial)}
+.pagina{
+  max-width:1060px;margin:0 auto;padding:72px 24px;
+  display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:0 48px;
+  position:relative;
+}
+@media (max-width:860px){.pagina{grid-template-columns:1fr}}
+.pagina + .pagina{border-top:3px double rgba(236,0,140,.5)} /* filete duplo de decreto */
+
+.miolo{max-width:var(--gz-measure)}
+.capitulo{ /* título de capítulo: lettering à mão, rosa */
+  font-family:var(--gz-font-lettering);
+  color:var(--gz-rosa-spray);
+  font-size:clamp(2rem,5vw,2.7rem);
+  line-height:1.2;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.rubrica{ /* rubrica de seção: condensada pesada */
+  font-family:var(--gz-font-display);
+  text-transform:uppercase;letter-spacing:.12em;
+  font-size:.95rem;color:var(--gz-preto-prensa);opacity:.75;
+  margin-bottom:26px;
+}
+.miolo p{margin-bottom:1.1em;text-wrap:pretty}
+.miolo p.abre{font-size:1.16rem}
+.miolo h3{
+  font-family:var(--gz-font-display);text-transform:uppercase;
+  letter-spacing:.05em;font-size:1.3rem;margin:1.8em 0 .6em;
+}
+
+/* marginália — a voz do Bobo na margem, com seta */
+.margem{position:relative;padding-top:8px}
+.nota-margem{
+  font-family:var(--gz-font-lettering);
+  color:var(--gz-teal-marginalia);
+  font-size:1.05rem;line-height:1.3;
+  margin-bottom:42px;transform:rotate(-2deg);
+}
+.nota-margem .seta{display:block;width:46px;height:34px;margin-bottom:4px}
+@media (max-width:860px){
+  .margem{padding:0}
+  .nota-margem{margin:6px 0 28px;transform:rotate(-1deg)}
+}
+
+/* cartões-adesivo (bento) */
+.stickers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:26px 0 8px}
+.sticker{
+  background:var(--gz-branco-reserva);
+  border:3px solid var(--gz-preto-prensa);
+  outline:4px solid var(--gz-branco-reserva); /* contorno de decalque */
+  border-radius:var(--gz-radius-sticker);
+  box-shadow:var(--gz-shadow-sticker);
+  padding:22px 20px;
+  transform:rotate(-.6deg);
+}
+.sticker:nth-child(2n){transform:rotate(.7deg)}
+.sticker:nth-child(3n){transform:rotate(-.3deg)}
+.sticker .selo{
+  font-family:var(--gz-font-display);text-transform:uppercase;
+  font-size:.8rem;letter-spacing:.1em;color:var(--gz-branco-reserva);
+  background:var(--gz-rosa-spray);border-radius:999px;
+  display:inline-block;padding:3px 12px;margin-bottom:12px;
+}
+.sticker h4{font-family:var(--gz-font-corpo);font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.sticker p{font-size:.95rem;margin:0}
+
+/* linha do tempo das 4 fases */
+.fases{counter-reset:fase;display:flex;flex-direction:column;gap:0;margin:30px 0 10px}
+.fase{
+  position:relative;padding:22px 0 26px 74px;counter-increment:fase;
+  border-left:3px dashed rgba(236,0,140,.55);margin-left:26px;
+}
+.fase:last-child{border-left-color:transparent}
+.fase::before{
+  content:counter(fase);
+  position:absolute;left:-26px;top:14px;width:48px;height:48px;
+  background:var(--gz-rosa-spray);color:var(--gz-branco-reserva);
+  font-family:var(--gz-font-display);font-size:1.5rem;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:3px solid var(--gz-creme-editorial);
+  box-shadow:0 0 0 3px var(--gz-rosa-spray);
+}
+.fase h4{font-family:var(--gz-font-display);text-transform:uppercase;font-size:1.25rem;letter-spacing:.04em;margin-bottom:4px}
+.fase .quem{
+  font-family:var(--gz-font-lettering);color:var(--gz-teal-marginalia);font-size:1rem;display:block;margin-bottom:8px;
+}
+.fase p{max-width:56ch}
+
+/* glossário termo a termo */
+.glossario{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:26px}
+.termo{
+  background:var(--gz-branco-reserva);
+  border-radius:var(--gz-radius-sticker);
+  border:2px solid rgba(35,31,32,.14);
+  padding:18px 20px;
+}
+.termo dt{font-weight:700;margin-bottom:6px}
+.termo dt .tt{font-family:var(--gz-font-codigo);color:var(--gz-rosa-spray);font-size:.95rem}
+.termo dd{font-size:.95rem}
+.termo dd em{color:var(--gz-teal-marginalia);font-style:normal;font-family:var(--gz-font-lettering)}
+
+/* hardware: diagrama de arquivos */
+.maquina{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:26px 0}
+.peca{
+  background:var(--gz-rosa-nevoa);
+  border-radius:var(--gz-radius-sticker);
+  padding:20px;border:2px dashed rgba(236,0,140,.45);
+}
+.peca .arquivo{font-family:var(--gz-font-codigo);font-size:.9rem;color:var(--gz-rosa-spray);display:block;margin-bottom:8px}
+.peca b{display:block;margin-bottom:4px}
+.peca p{font-size:.92rem;margin:0}
+
+/* ============================================================
+   RESPIRO — faixa preta com manifesto (o "inspira/expira")
+   ============================================================ */
+.respiro{
+  background:var(--gz-preto-prensa);color:var(--gz-creme-editorial);
+  padding:84px 24px;text-align:center;position:relative;overflow:hidden;
+}
+.respiro::after{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,247,239,.10) 1px,transparent 1.3px);
+  background-size:10px 10px;pointer-events:none;
+}
+.respiro blockquote{
+  font-family:var(--gz-font-lettering);
+  font-size:clamp(1.6rem,4.2vw,2.6rem);line-height:1.35;
+  max-width:26ch;margin:0 auto;position:relative;z-index:1;
+}
+.respiro blockquote .rosa{color:var(--gz-rosa-spray)}
+.respiro cite{
+  display:block;margin-top:26px;font-style:normal;
+  font-family:var(--gz-font-vhs);font-size:.9rem;letter-spacing:.12em;color:var(--gz-menta-fantasma);
+}
+
+/* ============================================================
+   CLÍMAX — MODO B: comece agora + pacote completo
+   ============================================================ */
+.climax{
+  background:var(--gz-preto-palco);color:var(--gz-branco-reserva);
+  padding:88px 24px;position:relative;overflow:hidden;
+}
+.climax::before{ /* grade synthwave discreta */
+  content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:42%;
+  background-image:
+    repeating-linear-gradient(to top,rgba(232,56,168,.28) 0 2px,transparent 2px 34px),
+    repeating-linear-gradient(to right,rgba(232,56,168,.16) 0 2px,transparent 2px 60px);
+  transform:perspective(340px) rotateX(58deg);
+  transform-origin:bottom center;pointer-events:none;
+}
+.climax .centro{max-width:980px;margin:0 auto;position:relative;z-index:1}
+.climax h2{
+  font-family:var(--gz-font-lettering);
+  color:var(--gz-rosa-neon);text-shadow:var(--gz-glow-neon);
+  font-size:clamp(2.2rem,6vw,3.4rem);text-transform:uppercase;text-align:center;margin-bottom:14px;
+}
+.climax .sub{
+  text-align:center;color:#E8E2E4;max-width:52ch;margin:0 auto 44px;
+}
+.caminhos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.caminho{
+  background:var(--gz-preto-prensa);
+  border:2px solid var(--gz-indigo-noite);
+  border-radius:var(--gz-radius-sticker);
+  padding:26px 22px;position:relative;
+}
+.caminho.destaque{border-color:var(--gz-rosa-neon);box-shadow:var(--gz-glow-neon)}
+.caminho .num{
+  font-family:var(--gz-font-vhs);color:var(--gz-lima-acida);font-size:.85rem;letter-spacing:.14em;display:block;margin-bottom:10px;
+}
+.caminho h3{font-family:var(--gz-font-display);text-transform:uppercase;font-size:1.3rem;letter-spacing:.04em;margin-bottom:10px}
+.caminho p{font-size:.95rem;color:#DAD3D6;margin-bottom:12px}
+.caminho code{
+  display:block;font-family:var(--gz-font-codigo);font-size:.82rem;
+  background:#000;color:var(--gz-menta-fantasma);
+  border-radius:10px;padding:10px 12px;overflow-x:auto;white-space:pre;
+}
+.pacote{
+  margin-top:44px;background:var(--gz-preto-prensa);
+  border:2px dashed var(--gz-menta-fantasma);
+  border-radius:var(--gz-radius-sticker);padding:28px 26px;
+  display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;
+}
+@media (max-width:640px){.pacote{grid-template-columns:1fr}}
+.pacote .estrela{width:64px;height:64px;color:var(--gz-poeira-estrela);flex-shrink:0}
+.pacote h3{font-family:var(--gz-font-display);text-transform:uppercase;font-size:1.25rem;margin-bottom:8px;color:var(--gz-menta-fantasma)}
+.pacote p{font-size:.95rem;color:#DAD3D6;margin-bottom:6px}
+
+/* ============================================================
+   FOOTER — volta ao claro (fecha o ciclo inspira/expira)
+   ============================================================ */
+footer{
+  background:var(--gz-creme-editorial);color:var(--gz-preto-prensa);
+  padding:46px 24px;text-align:center;
+  border-top:3px double rgba(236,0,140,.5);
+}
+footer .amor{font-family:var(--gz-font-lettering);color:var(--gz-rosa-spray);font-size:1.25rem;display:block;margin-bottom:10px}
+footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;letter-spacing:.04em}
+
+@media (prefers-reduced-motion:no-preference){
+  .sparks{animation:tw 3.2s ease-in-out infinite alternate}
+  @keyframes tw{from{opacity:.35}to{opacity:1}}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= ABERTURA · NEON ======================= -->
+<header class="hero">
+  <svg class="sparks" style="top:14%;left:12%;width:26px" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>
+  <svg class="sparks" style="top:24%;right:10%;width:38px;animation-delay:1.2s" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>
+  <svg class="sparks" style="bottom:18%;left:20%;width:18px;animation-delay:.6s" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>
+
+  <p class="hero-kicker">gravidade zero apresenta</p>
+  <h1><span class="eco" data-t="DIRETRIZ">DIRETRIZ</span></h1>
+  <span class="assinatura">de desenvolvimento gzero</span>
+  <p class="promessa">Você imagina. A inteligência artificial constrói. E <strong>nada se perde no caminho</strong>.</p>
+  <div class="cta-row">
+    <a class="btn btn-rosa" href="#comecar">Quero usar</a>
+    <a class="btn btn-ghost" href="#oque">Entender primeiro</a>
+  </div>
+  <p class="rodape-vhs">▚ NENHUMA FORMAÇÃO TÉCNICA É NECESSÁRIA ▞</p>
+</header>
+
+<main>
+
+<!-- ======================= CAP. 1 · O PROBLEMA ======================= -->
+<section class="pagina" id="oque">
+  <div class="miolo">
+    <h2 class="capitulo">Sair fazendo dá errado</h2>
+    <p class="rubrica">Capítulo 1 · o porquê</p>
+
+    <p class="abre">Todo mundo que já pediu alguma coisa grande para uma inteligência artificial conhece a cena: no começo é mágico. Mas aí a conversa cresce, a IA <span class="grifo">esquece o que foi combinado</span>, você repete tudo de novo, o projeto muda de rumo sem avisar, e três dias depois ninguém sabe mais o que estava pronto e o que faltava.</p>
+
+    <p>Isso acontece porque uma conversa com IA é como uma <strong>lousa</strong>: enorme, mas com espaço finito. Quando enche, apaga-se o começo para caber o fim. Se o combinado só existia na lousa… ele se foi.</p>
+
+    <p>A Diretriz GZero resolve isso com uma ideia simples: <span class="grifo">nada importante mora na conversa — tudo mora em arquivos</span>, escritos e atualizados pela própria IA. A conversa pode apagar; os arquivos ficam. Qualquer sessão nova lê os arquivos e continua exatamente de onde a anterior parou, como um plantonista que lê o caderno de passagem de turno.</p>
+
+    <div class="stickers">
+      <div class="sticker">
+        <span class="selo">sem diretriz</span>
+        <h4>"Refaz aí do zero…"</h4>
+        <p>Conversa esquece, decisões viram fumaça, qualidade depende do humor do dia, projeto morre pela metade.</p>
+      </div>
+      <div class="sticker">
+        <span class="selo">com diretriz</span>
+        <h4>"Continuar."</h4>
+        <p>É a única palavra que você precisa dizer para o trabalho seguir de onde parou — em qualquer dia, em qualquer sessão.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="margem">
+    <div class="nota-margem">
+      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 4 C20 2, 8 12, 5 28 M5 28 l-2 -8 M5 28 l8 -3"/></svg>
+      a lousa apaga.<br>o caderno, não!
+    </div>
+    <div class="nota-margem">
+      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 6 C24 10, 12 16, 6 30 M6 30 l-1 -8 M6 30 l8 -2"/></svg>
+      uma palavra.<br>sério: UMA.
+    </div>
+  </aside>
+</section>
+
+<!-- ======================= CAP. 2 · O QUE ELA É ======================= -->
+<section class="pagina">
+  <div class="miolo">
+    <h2 class="capitulo">O que é a Diretriz</h2>
+    <p class="rubrica">Capítulo 2 · o combinado de trabalho</p>
+
+    <p class="abre">A Diretriz é um <strong>combinado de trabalho por escrito</strong> entre você e a IA. Um conjunto pequeno de arquivos que mora dentro da pasta de cada projeto e que a IA é obrigada a ler antes de fazer qualquer coisa: o manual de bordo dela.</p>
+
+    <p>Nesse combinado está definido quem faz o quê. <span class="grifo">Você decide <strong>o quê</strong></span>: a ideia, a aparência, as prioridades. <span class="grifo">A IA decide <strong>o como</strong></span>, e executa: escreve o código, testa, revisa, corrige, guarda tudo. Você nunca precisa entender de programação; ela nunca decide o rumo do produto sem você.</p>
+
+    <p>E tem um detalhe que muda tudo: depois que vocês fecham as decisões juntos, elas ficam <strong>travadas</strong>. A IA não pode "mudar de ideia" nem te perguntar a mesma coisa duas vezes. Só você pode destravar uma decisão, e por escrito.</p>
+
+    <h3>Por que é melhor do que sair fazendo?</h3>
+    <div class="stickers">
+      <div class="sticker">
+        <span class="selo">memória</span>
+        <h4>Nada se perde</h4>
+        <p>Cada avanço é anotado em arquivo e guardado num cofre na nuvem. Queda de luz, janela fechada: tanto faz.</p>
+      </div>
+      <div class="sticker">
+        <span class="selo">qualidade</span>
+        <h4>Ninguém entrega sem testar</h4>
+        <p>Toda entrega passa por uma linha de inspeção: funciona de verdade? outro revisor concorda? ficou bonito no celular?</p>
+      </div>
+      <div class="sticker">
+        <span class="selo">autonomia</span>
+        <h4>Você não vira babá</h4>
+        <p>Depois do combinado, a IA trabalha sozinha por horas. Só te chama para o que é realmente seu: dinheiro, contas, publicação.</p>
+      </div>
+      <div class="sticker">
+        <span class="selo">visão</span>
+        <h4>Você escolhe vendo</h4>
+        <p>Antes de qualquer código, a IA te mostra 2–3 propostas visuais no navegador. Você escolhe olhando, não imaginando.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="margem">
+    <div class="nota-margem">
+      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 4 C20 2, 8 12, 5 28 M5 28 l-2 -8 M5 28 l8 -3"/></svg>
+      combinado não sai caro!
+    </div>
+  </aside>
+</section>
+
+<!-- ======================= CAP. 3 · COMO FUNCIONA ======================= -->
+<section class="pagina">
+  <div class="miolo">
+    <h2 class="capitulo">Como funciona</h2>
+    <p class="rubrica">Capítulo 3 · as quatro fases</p>
+
+    <p class="abre">Todo projeto atravessa o mesmo caminho, sempre nas mesmas quatro fases. Você participa muito no começo, e quase nada depois.</p>
+
+    <div class="fases">
+      <div class="fase">
+        <h4>Ideação</h4>
+        <span class="quem">você + a IA · uns 30–50 minutos de conversa</span>
+        <p>Uma entrevista gostosa: a IA pergunta uma coisa de cada vez, sempre com opções prontas para você escolher. O que é o projeto, para quem, o que não pode faltar, o que fica de fora. No final ela gera <strong>2–3 propostas visuais</strong> — você abre no navegador e escolhe a cara do projeto (pode misturar: "o layout da A com as cores da B").</p>
+      </div>
+      <div class="fase">
+        <h4>Travamento</h4>
+        <span class="quem">você + a IA · 5–15 minutos</span>
+        <p>Todas as decisões que dependem de você chegam numa lista numerada. Você bate o martelo. A IA pergunta: <em>"posso travar tudo e seguir sozinha até o fim?"</em> Você diz sim. E é a última vez que ela te pergunta qualquer uma dessas coisas.</p>
+      </div>
+      <div class="fase">
+        <h4>Execução autônoma</h4>
+        <span class="quem">só a IA · dias, se precisar</span>
+        <p>A IA trabalha meta por meta, cada uma passando por uma linha de inspeção completa (constrói → testa de verdade → outro revisor confere o código → outro confere o visual → só então marca ✅). A cada marco concluído, ela deixa <strong>capturas de tela</strong> para você espiar quando quiser, sem parar de trabalhar. E quando uma sessão enche, ela salva tudo e te pede: <em>"abra uma nova e diga: continuar"</em>.</p>
+      </div>
+      <div class="fase">
+        <h4>Entrega</h4>
+        <span class="quem">você + a IA</span>
+        <p>Antes de te chamar, a IA testa cada frase do "sucesso é…" que vocês definiram lá na ideação — na prática, com o produto rodando. Demonstra, ajusta o que você pedir e publica do jeito combinado. Depois disso, cada pedido novo seu vira uma nova meta e o ciclo recomeça.</p>
+      </div>
+    </div>
+  </div>
+  <aside class="margem">
+    <div class="nota-margem">
+      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 6 C24 10, 12 16, 6 30 M6 30 l-1 -8 M6 30 l8 -2"/></svg>
+      seu tempo total:<br>±1 hora por projeto
+    </div>
+    <div class="nota-margem">
+      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 4 C20 2, 8 12, 5 28 M5 28 l-2 -8 M5 28 l8 -3"/></svg>
+      espiar é opcional.<br>ela segue sozinha!
+    </div>
+  </aside>
+</section>
+
+<!-- ======================= CAP. 4 · O HARDWARE ======================= -->
+<section class="pagina">
+  <div class="miolo">
+    <h2 class="capitulo">A máquina por dentro</h2>
+    <p class="rubrica">Capítulo 4 · o "hardware" da diretriz</p>
+
+    <p class="abre">Nada aqui é mágica: é uma pequena máquina de arquivos. Cada peça tem um papel; juntas, elas formam a memória permanente que a conversa não tem.</p>
+
+    <div class="maquina">
+      <div class="peca">
+        <span class="arquivo">CLAUDE.md</span>
+        <b>O manual de bordo</b>
+        <p>As regras do jogo. A IA lê automaticamente ao abrir a pasta; por isso você nunca precisa explicar nada de novo.</p>
+      </div>
+      <div class="peca">
+        <span class="arquivo">.projeto/ESTADO.md</span>
+        <b>O caderno de passagem de turno</b>
+        <p>Onde o projeto está AGORA: o que ficou pronto, o que está no meio, qual é o próximo passo. É o que a palavra "continuar" aciona.</p>
+      </div>
+      <div class="peca">
+        <span class="arquivo">.projeto/VISAO.md</span>
+        <b>O sonho por escrito</b>
+        <p>O que é o projeto, para quem, como deve parecer, e o que significa "deu certo".</p>
+      </div>
+      <div class="peca">
+        <span class="arquivo">.projeto/DECISOES.md</span>
+        <b>O cartório</b>
+        <p>Tudo que foi decidido e travado, com data. Decisão travada não se reabre: só você pode destravar.</p>
+      </div>
+      <div class="peca">
+        <span class="arquivo">.projeto/ROADMAP.md</span>
+        <b>A lista de metas</b>
+        <p>O caminho até a entrega, meta por meta, cada uma com seu critério de "pronto de verdade".</p>
+      </div>
+      <div class="peca">
+        <span class="arquivo">.projeto/diario/</span>
+        <b>O diário de obra</b>
+        <p>Um relato por sessão de trabalho: o que foi feito, o que deu errado, o que não vale a pena tentar de novo.</p>
+      </div>
+      <div class="peca">
+        <span class="arquivo">.projeto/screenshots/</span>
+        <b>A vitrine</b>
+        <p>As capturas de tela de cada marco: seus checkpoints para espiar o andamento sem interromper nada.</p>
+      </div>
+      <div class="peca">
+        <span class="arquivo">GitHub privado</span>
+        <b>O cofre</b>
+        <p>Uma cópia de tudo, fora do computador, atualizada a cada meta. Criado automaticamente, invisível para você.</p>
+      </div>
+    </div>
+
+    <h3>Termo a termo, sem tecniquês</h3>
+    <dl class="glossario">
+      <div class="termo"><dt><span class="tt">sessão</span></dt><dd>Uma conversa com a IA, do "oi" ao fechar a janela. <em>como um turno de trabalho.</em></dd></div>
+      <div class="termo"><dt><span class="tt">contexto</span></dt><dd>A "lousa" da sessão: a memória de curto prazo, que enche e apaga. <em>por isso tudo vai pra arquivo!</em></dd></div>
+      <div class="termo"><dt><span class="tt">meta</span></dt><dd>Um pedaço do projeto pequeno o bastante para ficar pronto, testado e conferido de uma vez. <em>tijolo por tijolo.</em></dd></div>
+      <div class="termo"><dt><span class="tt">travamento</span></dt><dd>O momento em que suas decisões viram lei. A IA nunca mais pergunta nem muda sozinha. <em>martelo batido!</em></dd></div>
+      <div class="termo"><dt><span class="tt">handoff</span></dt><dd>A passagem de bastão entre uma sessão que encheu e a próxima. Automática: você só diz "continuar". <em>corrida de revezamento.</em></dd></div>
+      <div class="termo"><dt><span class="tt">repositório</span></dt><dd>A pasta do projeto guardada na nuvem (GitHub), com o histórico inteiro de mudanças. <em>o cofre com câmeras.</em></dd></div>
+      <div class="termo"><dt><span class="tt">commit</span></dt><dd>Uma "foto" do projeto num momento no tempo. Se algo der errado depois, dá para voltar à foto anterior. <em>ctrl+z eterno.</em></dd></div>
+      <div class="termo"><dt><span class="tt">subagente</span></dt><dd>Uma segunda IA chamada só para revisar o trabalho da primeira: um colega que confere com olhos frescos. <em>quatro olhos &gt; dois.</em></dd></div>
+      <div class="termo"><dt><span class="tt">smoke test</span></dt><dd>Um teste automático que "liga o motor" de cada parte pronta, todos os dias, para garantir que nada quebrou. <em>cheirou fumaça? para tudo.</em></dd></div>
+      <div class="termo"><dt><span class="tt">design system</span></dt><dd>O kit oficial de cores, letras e estilos de uma marca, para tudo sair com a mesma cara. <em>o nosso é rosa, claro.</em></dd></div>
+    </dl>
+  </div>
+  <aside class="margem">
+    <div class="nota-margem">
+      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 4 C20 2, 8 12, 5 28 M5 28 l-2 -8 M5 28 l8 -3"/></svg>
+      8 peças. só isso.<br>e roda em qualquer pasta.
+    </div>
+  </aside>
+</section>
+
+<!-- ======================= CAP. 5 · A ORIENTAÇÃO ======================= -->
+<section class="pagina">
+  <div class="miolo">
+    <h2 class="capitulo">A orientação dela</h2>
+    <p class="rubrica">Capítulo 5 · as regras de ouro</p>
+
+    <p class="abre">Por baixo de todo o processo, a Diretriz tem uma filosofia: poucas regras, mas inegociáveis. São elas que fazem o sistema ser confiável mesmo trabalhando sozinho:</p>
+
+    <div class="stickers">
+      <div class="sticker"><span class="selo">nº 1</span><h4>Você decide o quê. Ela decide o como.</h4><p>A fronteira nunca se inverte: a IA não muda seu produto, você não precisa virar programador.</p></div>
+      <div class="sticker"><span class="selo">nº 2</span><h4>Decisão travada não se reabre.</h4><p>O que foi combinado, vale. Só você destrava, e por escrito.</p></div>
+      <div class="sticker"><span class="selo">nº 3</span><h4>Nada é "pronto" sem funcionar de verdade.</h4><p>Compilar não é testar. Toda meta é usada de ponta a ponta, inclusive nos caminhos que dão errado, antes do ✅.</p></div>
+      <div class="sticker"><span class="selo">nº 4</span><h4>Tudo anotado, sempre.</h4><p>Estado, decisões, diário, cofre na nuvem. A memória do projeto nunca depende da memória da conversa.</p></div>
+      <div class="sticker"><span class="selo">nº 5</span><h4>Interromper você é exceção.</h4><p>Só para dinheiro, contas externas, publicação ou algo que contrarie o combinado. Todo o resto, ela resolve e presta contas.</p></div>
+      <div class="sticker"><span class="selo">nº 6</span><h4>Segredos são segredos.</h4><p>Senhas e chaves nunca vão para a conversa, para os arquivos de memória nem para o cofre. Nunca.</p></div>
+    </div>
+
+    <p style="margin-top:22px">E uma curiosidade honesta: essa diretriz não nasceu pronta. Ela foi <span class="grifo-lima">atacada por mais de 90 revisores de IA</span> em quatro rodadas (especialistas simulados em gestão, engenharia, design, qualidade e segurança), e cada falha encontrada virou regra nova. O documento que a sua IA lê é o sobrevivente desses ataques.</p>
+  </div>
+  <aside class="margem">
+    <div class="nota-margem">
+      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 6 C24 10, 12 16, 6 30 M6 30 l-1 -8 M6 30 l8 -2"/></svg>
+      90+ revisores.<br>zero dó.
+    </div>
+  </aside>
+</section>
+
+</main>
+
+<!-- ======================= RESPIRO · MANIFESTO ======================= -->
+<section class="respiro">
+  <blockquote>
+    "a boa ideia não pode depender<br>
+    de quem <span class="rosa">lembra</span> dela.<br>
+    tem que morar no <span class="rosa">papel</span>."
+  </blockquote>
+  <cite>DIRETRIZ GZERO · REGRA ZERO</cite>
+</section>
+
+<!-- ======================= CLÍMAX · COMECE ======================= -->
+<section class="climax" id="comecar">
+  <div class="centro">
+    <h2>Comece hoje</h2>
+    <p class="sub">Três jeitos de ter a Diretriz na sua máquina. Todos precisam só do Claude Code instalado — escolha o seu:</p>
+
+    <div class="caminhos">
+      <div class="caminho destaque">
+        <span class="num">▚ O JEITO RECOMENDADO</span>
+        <h3>Plugin oficial</h3>
+        <p>Um comando dentro do Claude Code, uma vez só, e os comandos da Diretriz ficam disponíveis para sempre, com atualizações automáticas.</p>
+        <code>/plugin marketplace add Artur-Antunes-1/diretriz-gzero
+/plugin install diretriz@diretriz-gzero
+
+# e em qualquer pasta nova:
+/diretriz:novo</code>
+      </div>
+      <div class="caminho">
+        <span class="num">▚ PARA QUEM GOSTA DE VER TUDO</span>
+        <h3>Clonar o repositório</h3>
+        <p>Para quem gosta de ver os arquivos: clone, leia o COMECE-AQUI.md e use os prompts prontos do COMO-INICIAR.md.</p>
+        <code>git clone &lt;url-do-repo&gt;
+# abra COMECE-AQUI.md
+# e siga os 3 passos</code>
+      </div>
+      <div class="caminho">
+        <span class="num">▚ SEM INSTALAR NADA</span>
+        <h3>Só o prompt</h3>
+        <p>Sem instalar nada: copie o prompt de "Projeto novo" do repositório e cole na sua primeira sessão. O Claude baixa o template sozinho.</p>
+        <code># cole o prompt e diga sua ideia
+# nas próximas sessões:
+continuar</code>
+      </div>
+    </div>
+
+    <div class="pacote">
+      <svg class="estrela" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>
+      <div>
+        <h3>Bônus do pacote: o Design System GZero</h3>
+        <p>Junto com a Diretriz vai o kit visual oficial da casa: as cores, as fontes e o estilo que você está vendo nesta página. Na fase de ideação, uma das propostas visuais pode nascer <strong>com a cara da GZero</strong>, pronta.</p>
+        <p><strong>É sugestão, não obrigação:</strong> cada projeto escolhe livremente a própria cara. O kit está lá para quando quiser — <span style="font-family:var(--gz-font-lettering);color:var(--gz-rosa-neon)">com amor &amp; spray rosa</span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <span class="amor">somos gzero ★</span>
+  <small>DIRETRIZ GZERO DE PROJETOS · construída e revisada por IA sob direção humana · design: GZERO DESIGN SYSTEM v1.0</small>
+</footer>
+
+</body>
+</html>
