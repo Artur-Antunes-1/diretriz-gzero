@@ -87,5 +87,6 @@ A **metodologia** (template, prompts, comandos, este texto) é livre para usar e
 adaptar. A **identidade visual GZero** (design system, ilustrações, estilo,
 personagens) é propriedade da Gravidade Zero — acompanha o pacote como sugestão
 para projetos da comunidade GZero, não para reuso da marca por terceiros.
-A fonte Salted é da Fontshare (o site a carrega pelo CDN oficial deles);
-Atkinson Hyperlegible e Hepta Slab são OFL.
+As fontes acompanham o pacote para uso interno da comunidade GZero
+(Atkinson Hyperlegible e Hepta Slab são OFL; Salted é da Fontshare —
+para uso próprio fora da GZero, baixe-a em fontshare.com).
