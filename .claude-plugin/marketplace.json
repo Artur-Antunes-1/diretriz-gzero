@@ -1,0 +1,33 @@
+{
+  "name": "diretriz-gzero",
+  "owner": {
+    "name": "Artur Antunes",
+    "email": "artur.antunes@gravidadezero.space"
+  },
+  "metadata": {
+    "description": "Diretriz GZero de Projetos - metodologia da Gravidade Zero para desenvolvimento de projetos com Claude Code, com template completo e Design System GZero opcional"
+  },
+  "plugins": [
+    {
+      "name": "diretriz",
+      "source": "./",
+      "description": "A Diretriz GZero: voce decide O QUE, a IA decide O COMO e executa. Comandos /diretriz:novo, /diretriz:adotar e /diretriz:atualizar instalam o template (CLAUDE.md + .projeto/) em qualquer pasta. Inclui o Design System GZero como sugestao visual opcional.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Artur Antunes / Gravidade Zero",
+        "email": "artur.antunes@gravidadezero.space"
+      },
+      "license": "Uso interno Gravidade Zero",
+      "keywords": [
+        "metodologia",
+        "workflow",
+        "autonomia",
+        "gravidade-zero",
+        "template",
+        "pt-br"
+      ],
+      "category": "workflow",
+      "strict": false
+    }
+  ]
+}

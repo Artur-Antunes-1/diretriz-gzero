@@ -1,0 +1,6 @@
+.env*
+!.env.example
+node_modules/
+.impeccable/
+Thumbs.db
+.DS_Store

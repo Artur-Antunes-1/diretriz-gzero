@@ -1,0 +1,262 @@
+/* ============================================================
+   GRAVIDADE ZERO — Design Tokens (CSS Custom Properties)
+   Fonte da verdade: tokens.json + design-system-gzero.md
+   --------------------------------------------------------
+   Uso:
+     :root                -> tokens-base + Modo A (Editorial Claro) como padrão
+     [data-theme="dark"]  -> Modo B (Neon Escuro) — remapeia os tokens semânticos
+   Núcleo de cor e fontes são fatos determinísticos dos arquivos-fonte.
+   "com amor & spray rosa" — RENANTE. SOMOS GZERO.
+   ============================================================ */
+
+:root {
+  /* ---------- COR · NÚCLEO DE MARCA (verdade de base) ---------- */
+  --gz-rosa-spray:        #EC008C; /* primária, cor-assinatura */
+  --gz-creme-editorial:   #FFF7EF; /* fundo de leitura (Modo A) */
+  --gz-preto-prensa:      #231F20; /* preto quente — nunca #000 no editorial */
+  --gz-branco-reserva:    #FFFFFF; /* palco das ilustrações / knockout */
+  --gz-roxo-realce:       #9643FC; /* grifo marca-texto + stickers */
+  --gz-teal-marginalia:   #00AAB3; /* voz manuscrita da margem + setas */
+  --gz-rosa-blush:        #EF5BA1; /* acento raro / bochecha */
+  --gz-rosa-nevoa:        #FCDFEB; /* fundo suave / halftone claríssimo */
+
+  /* tints de marca-texto (roxo translúcido sobre creme) */
+  --gz-roxo-grifo-1:      #C9A6F5;
+  --gz-roxo-grifo-2:      #D9C6F2;
+  /* versão viva do grifo com opacidade (para highlight de leitor) */
+  --gz-grifo-highlight:   rgba(150, 67, 252, 0.28);
+
+  /* ---------- COR · MODO NEON ESCURO (palco) ---------- */
+  /* Acentos que SÓ existem sobre preto. Verdes/índigo/brasa/poeira
+     estão fora da paleta vetorial oficial — usar como acento, não base. */
+  --gz-preto-palco:       #080808; /* fundo dominante do Modo B */
+  --gz-rosa-neon:         #E838A8; /* família #D83888–#E838A8; glow/contorno */
+  --gz-lima-acida:        #A8C838; /* verde-limão de alta voltagem */
+  --gz-menta-fantasma:    #68F8A8; /* verde-menta neon */
+  --gz-indigo-noite:      #483868; /* roxo profundo */
+  --gz-brasa:             #E84838; /* laranja-vermelho pop */
+  --gz-poeira-estrela:    #F8F8A8; /* amarelo pálido / sparkles */
+
+  /* ---------- COR · TINTAS DE ILUSTRAÇÃO (riso — estimadas) ---------- */
+  /* NÃO usar como cor de UI, texto ou fundo. Só pranchas ilustradas. */
+  --gz-amarelo-processo:  #FFE500;
+  --gz-vermelho-overprint:#F23A1E;
+  --gz-laranja-riso:      #F7941E;
+  --gz-ciano-respingo:    #00AEEF;
+  --gz-azul-fantasma:     #6E7FC4;
+
+  /* ---------- COR · SUBSISTEMA PRODUTO (oliva — NÃO é marca) ---------- */
+  --gz-oliva-humanware:   #5B6A1C;
+  --gz-creme-produto:     #FBF9F1;
+  --gz-grafite-rotulo:    #2E2A24;
+  --gz-cinza-morno:       #6F6F6F;
+  --gz-borda-clara:       #E7E3D9;
+
+  /* ---------- TIPOGRAFIA · FAMÍLIAS (com fallbacks seguros) ---------- */
+  --gz-font-corpo:      "Atkinson Hyperlegible", system-ui, sans-serif;      /* corpo — nunca degradar */
+  --gz-font-display:    "Tanker", "Anton", Impact, sans-serif;               /* condensada pesada */
+  --gz-font-lettering:  "Salted", "Bradley Hand", cursive;                    /* voz humana / Bobo */
+  --gz-font-carved:     "AW Conqueror Std Carved", "Tanker", serif;           /* wordmark carved */
+  --gz-font-slab:       "Hepta Slab", Rockwell, serif;                        /* slab de detalhe */
+  --gz-font-vhs:        "Home Video", "VT323", monospace;                     /* VHS retrô */
+  --gz-font-poster:     "ADAM.CG Pro", "Tanker", sans-serif;                  /* display alternativa */
+  --gz-font-codigo:     "Menlo", "Courier New", "JetBrains Mono", monospace;  /* voz de máquina */
+
+  /* ---------- TIPOGRAFIA · PESOS ---------- */
+  --gz-weight-extralight: 200;
+  --gz-weight-regular:    400;
+  --gz-weight-bold:       700;
+  --gz-weight-black:      900;
+
+  /* ---------- TIPOGRAFIA · ESCALA (modular ~1.25) ---------- */
+  --gz-size-caption:  0.8rem;
+  --gz-size-body:     1rem;      /* base — 18px sugerido p/ leitura */
+  --gz-size-h3:       1.25rem;
+  --gz-size-h2:       1.563rem;
+  --gz-size-h1:       1.953rem;
+  --gz-size-display:  2.441rem;
+  --gz-size-hero:     3.052rem;
+  --gz-size-wordmark: 3.815rem;
+
+  --gz-leading-corpo:     1.5;   /* entrelinha folgada Atkinson (1.4–1.55) */
+  --gz-leading-titulo:    1.1;
+  --gz-leading-lettering: 1.25;
+  --gz-tracking-kicker:   0.12em;
+  --gz-tracking-normal:   0em;
+
+  /* medida ideal de coluna de leitura (40–58 caracteres) */
+  --gz-measure: 48ch;
+
+  /* ---------- ESPAÇAMENTO (base-8) ---------- */
+  --gz-space-3xs: 2px;
+  --gz-space-2xs: 4px;
+  --gz-space-xs:  8px;
+  --gz-space-sm:  12px;
+  --gz-space-md:  16px;
+  --gz-space-lg:  24px;
+  --gz-space-xl:  32px;
+  --gz-space-2xl: 48px;
+  --gz-space-3xl: 64px;
+  --gz-space-4xl: 96px;
+  --gz-space-5xl: 128px;
+
+  /* ---------- RAIO DE CANTO ---------- */
+  --gz-radius-none:    0;      /* molduras editoriais — cantos vivos */
+  --gz-radius-sticker: 20px;   /* cards bento / recorte-adesivo */
+  --gz-radius-pill:    999px;  /* chips, pills, badges */
+
+  /* ---------- SOMBRAS / GLOW ---------- */
+  --gz-shadow-sticker: 0 6px 18px rgba(35, 31, 32, 0.18);         /* drop-shadow de adesivo (claro) */
+  --gz-glow-neon:      0 0 12px rgba(232, 56, 168, 0.75),
+                       0 0 28px rgba(232, 56, 168, 0.45);          /* bloom rosa — SÓ Modo B */
+
+  /* ============================================================
+     TOKENS SEMÂNTICOS — padrão = MODO A (Editorial Claro)
+     Use SEMPRE estes nas UIs; eles trocam sozinhos no modo escuro.
+     ============================================================ */
+  --gz-bg:            var(--gz-creme-editorial); /* fundo de página */
+  --gz-surface:       var(--gz-branco-reserva);  /* superfície elevada / palco ilustração */
+  --gz-fg:            var(--gz-preto-prensa);     /* texto principal */
+  --gz-fg-muted:      #5A5352;                     /* texto secundário (preto rebaixado) */
+  --gz-accent:        var(--gz-rosa-spray);       /* cor-assinatura / título / ênfase */
+  --gz-accent-quiet:  var(--gz-rosa-blush);       /* acento secundário */
+  --gz-highlight:     var(--gz-grifo-highlight);  /* grifo marca-texto */
+  --gz-margin-voice:  var(--gz-teal-marginalia);  /* voz da marginália + setas */
+  --gz-border:        rgba(35, 31, 32, 0.14);     /* filete/borda sutil */
+  --gz-shadow:        var(--gz-shadow-sticker);
+  --gz-glow:          none;                        /* sem glow no claro */
+}
+
+/* ============================================================
+   MODO B — NEON ESCURO
+   Ativa via <html data-theme="dark"> (ou container com o atributo).
+   Remapeia só os tokens SEMÂNTICOS; a paleta-base é a mesma.
+   ============================================================ */
+[data-theme="dark"] {
+  --gz-bg:           var(--gz-preto-palco);    /* palco */
+  --gz-surface:      var(--gz-preto-prensa);   /* card sobre o palco */
+  --gz-fg:           var(--gz-branco-reserva); /* texto sobre preto */
+  --gz-fg-muted:     #B9B2B4;                   /* secundário claro */
+  --gz-accent:       var(--gz-rosa-spray);     /* rosa segue liderando */
+  --gz-accent-quiet: var(--gz-rosa-neon);      /* rosa quente do neon */
+  --gz-highlight:    rgba(168, 200, 56, 0.30); /* realce gestual lima */
+  --gz-margin-voice: var(--gz-menta-fantasma); /* marginália no neon */
+  --gz-border:       rgba(255, 255, 255, 0.16);
+  --gz-shadow:       none;
+  --gz-glow:         var(--gz-glow-neon);      /* bloom liberado no palco */
+}
+
+/* Suporte opcional a preferência do sistema (sem sobrescrever escolha explícita).
+   Comente este bloco se quiser que o Modo A seja sempre o default. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --gz-bg:           var(--gz-preto-palco);
+    --gz-surface:      var(--gz-preto-prensa);
+    --gz-fg:           var(--gz-branco-reserva);
+    --gz-fg-muted:     #B9B2B4;
+    --gz-accent:       var(--gz-rosa-spray);
+    --gz-accent-quiet: var(--gz-rosa-neon);
+    --gz-highlight:    rgba(168, 200, 56, 0.30);
+    --gz-margin-voice: var(--gz-menta-fantasma);
+    --gz-border:       rgba(255, 255, 255, 0.16);
+    --gz-shadow:       none;
+    --gz-glow:         var(--gz-glow-neon);
+  }
+}
+
+/* ============================================================
+   ESTILOS-BASE OPCIONAIS (helpers prontos)
+   Aplicáveis diretamente; remova se preferir só as variáveis.
+   ============================================================ */
+.gz-page {
+  background: var(--gz-bg);
+  color: var(--gz-fg);
+  font-family: var(--gz-font-corpo);
+  font-size: var(--gz-size-body);
+  line-height: var(--gz-leading-corpo);
+}
+
+/* Corpo de leitura — coluna estreita, ragged-left */
+.gz-corpo {
+  font-family: var(--gz-font-corpo);
+  font-size: var(--gz-size-body);
+  line-height: var(--gz-leading-corpo);
+  max-width: var(--gz-measure);
+  text-align: left;
+  text-wrap: pretty;
+}
+
+/* Título de capítulo — lettering à mão, cor-assinatura */
+.gz-titulo {
+  font-family: var(--gz-font-lettering);
+  font-size: var(--gz-size-h1);
+  line-height: var(--gz-leading-lettering);
+  color: var(--gz-accent);
+  text-transform: uppercase;
+}
+
+/* Rubrica de seção — condensada pesada, espaçada */
+.gz-secao {
+  font-family: var(--gz-font-display);
+  font-size: var(--gz-size-h2);
+  line-height: var(--gz-leading-titulo);
+  letter-spacing: var(--gz-tracking-kicker);
+  text-transform: uppercase;
+}
+
+/* Kicker/subhead — slab hairline */
+.gz-kicker {
+  font-family: var(--gz-font-slab);
+  font-weight: var(--gz-weight-extralight);
+  font-size: var(--gz-size-h3);
+  letter-spacing: var(--gz-tracking-kicker);
+  text-transform: uppercase;
+}
+
+/* Wordmark / display carved — ganha glow no Modo B */
+.gz-wordmark {
+  font-family: var(--gz-font-carved);
+  font-size: var(--gz-size-wordmark);
+  line-height: var(--gz-leading-titulo);
+  color: var(--gz-accent);
+  text-shadow: var(--gz-glow);
+}
+
+/* Grifo marca-texto (roxo translúcido, como caneta de leitor) */
+.gz-grifo {
+  background: var(--gz-highlight);
+  padding: 0 0.1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Nota de margem — Salted, teal/menta, rotacionada 90° */
+.gz-marginalia {
+  font-family: var(--gz-font-lettering);
+  font-size: var(--gz-size-caption);
+  line-height: var(--gz-leading-lettering);
+  color: var(--gz-margin-voice);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg); /* lê-se de baixo p/ cima */
+  text-transform: uppercase;
+}
+
+/* Voz de máquina — monoespaçada */
+.gz-codigo {
+  font-family: var(--gz-font-codigo);
+  font-size: var(--gz-size-body);
+  color: var(--gz-margin-voice);
+}
+
+/* Card bento / recorte-adesivo */
+.gz-sticker {
+  border-radius: var(--gz-radius-sticker);
+  background: var(--gz-surface);
+  box-shadow: var(--gz-shadow);
+}
+
+/* Campo chapado da cor-assinatura (divisor/capa) */
+.gz-campo-rosa {
+  background: var(--gz-rosa-spray);
+  color: var(--gz-branco-reserva);
+}
