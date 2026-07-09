@@ -3,7 +3,6 @@
 > Você imagina. A IA constrói. Nada se perde.
 > Para entender o que é isso em 5 minutos, abra o site:
 > **https://artur-antunes-1.github.io/diretriz-gzero/**
-> (o site é público; este repositório é privado)
 
 A Diretriz GZero é a metodologia da casa para criar projetos com o Claude Code:
 você conversa e decide o produto; a IA desenvolve tudo sozinha, com qualidade
@@ -25,8 +24,8 @@ Dentro do Claude Code, rode uma vez:
 /plugin install diretriz@diretriz-gzero
 ```
 
-(Precisa de acesso ao repositório — peça o convite ao Artur — e do git/gh
-logado na sua conta.)
+Só isso — o repositório é público, não precisa de convite nem de conta
+especial para instalar.
 
 Pronto. Em qualquer pasta, para sempre:
 

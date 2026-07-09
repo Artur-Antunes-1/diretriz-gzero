@@ -76,6 +76,16 @@ não pare em caixas de permissão.
 6. **Todo projeto vive num repositório privado no GitHub**, criado automaticamente
    na primeira sessão e atualizado com push a cada meta — backup fora do
    computador, sem você fazer nada. Se o projeto já tem repositório, ele só
-   continua atualizando.
+   continua atualizando. (Este repositório da Diretriz é público; os repositórios
+   dos SEUS projetos são sempre privados.)
 7. **Perto do limite de contexto (~90%)**, a sessão salva tudo com segurança e
    encerra com a mensagem padrão: *"abra uma nova sessão nesta pasta e diga: continuar"*.
+
+## Uso e licença
+
+A **metodologia** (template, prompts, comandos, este texto) é livre para usar e
+adaptar. A **identidade visual GZero** (design system, ilustrações, estilo,
+personagens) é propriedade da Gravidade Zero — acompanha o pacote como sugestão
+para projetos da comunidade GZero, não para reuso da marca por terceiros.
+A fonte Salted é da Fontshare (o site a carrega pelo CDN oficial deles);
+Atkinson Hyperlegible e Hepta Slab são OFL.
