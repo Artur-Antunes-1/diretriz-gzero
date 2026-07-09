@@ -80,6 +80,31 @@ a{color:var(--gz-rosa-spray)}
 /* estrela de 8 pontas — glifo-assinatura */
 .star8{display:inline-block;width:1em;height:1em;vertical-align:-0.1em}
 
+/* ---------- ILUSTRAÇÕES ---------- */
+.hero-art{
+  width:min(520px,88%);display:block;margin:38px auto 4px;position:relative;
+  border-radius:var(--gz-radius-sticker);
+  transform:rotate(-1.2deg);
+  box-shadow:0 0 22px rgba(232,56,168,.4),0 0 48px rgba(232,56,168,.18);
+}
+.prancha{ /* prancha ilustrada com filete duplo de decreto */
+  margin:30px 0 6px;background:var(--gz-branco-reserva);
+  border:3px double var(--gz-rosa-spray);
+  box-shadow:var(--gz-shadow-sticker);
+  padding:8px;
+}
+.prancha img{display:block;width:100%}
+.prancha figcaption{
+  font-family:var(--gz-font-lettering);color:var(--gz-teal-marginalia);
+  font-size:1.02rem;padding:10px 6px 4px;text-align:center;
+}
+.spray-art{
+  width:150px;flex-shrink:0;transform:rotate(3deg);
+  border-radius:var(--gz-radius-sticker);
+  box-shadow:0 0 18px rgba(232,56,168,.45);
+}
+@media (max-width:640px){.spray-art{width:110px;margin:0 auto}}
+
 /* ============================================================
    HERO — MODO B (NEON ESCURO): "apaga a luz e acende o neon"
    ============================================================ */
@@ -363,6 +388,7 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
   <h1><span class="eco" data-t="DIRETRIZ">DIRETRIZ</span></h1>
   <span class="assinatura">de desenvolvimento gzero</span>
   <p class="promessa">Você imagina. A inteligência artificial constrói. E <strong>nada se perde no caminho</strong>.</p>
+  <img class="hero-art" src="img/hero-astronauta.webp" alt="Menino-astronauta com gorro de bobo da corte flutuando em gravidade zero, abraçado a um caderno rosa que brilha, cercado de estrelas de oito pontas" width="1024" height="768">
   <div class="cta-row">
     <a class="btn btn-rosa" href="#comecar">Quero usar</a>
     <a class="btn btn-ghost" href="#oque">Entender primeiro</a>
@@ -395,6 +421,11 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
         <p>É a única palavra que você precisa dizer para o trabalho seguir de onde parou — em qualquer dia, em qualquer sessão.</p>
       </div>
     </div>
+
+    <figure class="prancha">
+      <img src="img/prancha-lousa.webp" alt="Ilustração: uma lousa escolar sendo apagada por um apagador travesso, e ao lado um caderno rosa de coroa guardando corações e estrelas em segurança" width="1280" height="832">
+      <figcaption>a tese inteira num desenho: a lousa apaga, o caderno guarda.</figcaption>
+    </figure>
   </div>
   <aside class="margem">
     <div class="nota-margem">
@@ -502,6 +533,11 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
     <p class="rubrica">Capítulo 4 · o "hardware" da diretriz</p>
 
     <p class="abre">Nada aqui é mágica: é uma pequena máquina de arquivos. Cada peça tem um papel; juntas, elas formam a memória permanente que a conversa não tem.</p>
+
+    <figure class="prancha">
+      <img src="img/prancha-maquina.webp" alt="Ilustração: uma máquina de circo com manivela girada por um bobo da corte; balões de conversa entram por um funil e saem arquivos rosa organizados e um cofre" width="1280" height="832">
+      <figcaption>conversa entra, memória organizada sai. a manivela nunca para.</figcaption>
+    </figure>
 
     <div class="maquina">
       <div class="peca">
@@ -643,7 +679,7 @@ continuar</code>
     </div>
 
     <div class="pacote">
-      <svg class="estrela" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>
+      <img class="spray-art" src="img/spray-estrela.webp" alt="Lata de spray rosa com rosto de cartum desenhando uma estrela em neon com explosão de meio-tom" width="1024" height="1024">
       <div>
         <h3>Bônus do pacote: o Design System GZero</h3>
         <p>Junto com a Diretriz vai o kit visual oficial da casa: as cores, as fontes e o estilo que você está vendo nesta página. Na fase de ideação, uma das propostas visuais pode nascer <strong>com a cara da GZero</strong>, pronta.</p>
