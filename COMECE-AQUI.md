@@ -1,8 +1,9 @@
 # Comece aqui — Diretriz GZero para colegas
 
 > Você imagina. A IA constrói. Nada se perde.
-> Para entender o que é isso em 5 minutos, abra o site: `site/index.html`
-> (dois cliques e ele abre no navegador).
+> Para entender o que é isso em 5 minutos, abra o site:
+> **https://artur-antunes-1.github.io/diretriz-gzero/**
+> (o site é público; este repositório é privado)
 
 A Diretriz GZero é a metodologia da casa para criar projetos com o Claude Code:
 você conversa e decide o produto; a IA desenvolve tudo sozinha, com qualidade

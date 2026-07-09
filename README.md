@@ -1,8 +1,10 @@
 # Diretriz GZero de Projetos
 
 > **É colega da Gravidade Zero e chegou agora?** Comece pelo
-> [COMECE-AQUI.md](COMECE-AQUI.md) — e abra o [site/index.html](site/index.html)
-> no navegador para entender tudo em 5 minutos, sem tecniquês.
+> [COMECE-AQUI.md](COMECE-AQUI.md) — e visite o site
+> **https://artur-antunes-1.github.io/diretriz-gzero/** para entender tudo em
+> 5 minutos, sem tecniquês. (Fonte do site: `site/`; a cópia servida pelo
+> GitHub Pages vive em `docs/` — ao mudar o site, atualize as duas.)
 
 Sistema de desenvolvimento de projetos com Claude Code em que:
 
