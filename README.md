@@ -1,5 +1,9 @@
 # Diretriz GZero de Projetos
 
+> **É colega da Gravidade Zero e chegou agora?** Comece pelo
+> [COMECE-AQUI.md](COMECE-AQUI.md) — e abra o [site/index.html](site/index.html)
+> no navegador para entender tudo em 5 minutos, sem tecniquês.
+
 Sistema de desenvolvimento de projetos com Claude Code em que:
 
 - **Artur decide O QUÊ** — a ideia, a aparência, as prioridades, o que entra e o que fica de fora.

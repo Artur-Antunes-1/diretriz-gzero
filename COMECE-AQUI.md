@@ -20,9 +20,12 @@ verificada e sem perder nada entre sessões. **Não precisa saber programar.**
 Dentro do Claude Code, rode uma vez:
 
 ```
-/plugin marketplace add <URL-DESTE-REPOSITORIO>
+/plugin marketplace add Artur-Antunes-1/diretriz-gzero
 /plugin install diretriz@diretriz-gzero
 ```
+
+(Precisa de acesso ao repositório — peça o convite ao Artur — e do git/gh
+logado na sua conta.)
 
 Pronto. Em qualquer pasta, para sempre:
 
@@ -35,12 +38,12 @@ Pronto. Em qualquer pasta, para sempre:
 
 ## Sem plugin (alternativas)
 
-- **Clonar o repo:** `git clone <URL-DESTE-REPOSITORIO>` e usar os prompts
-  prontos do `COMO-INICIAR.md` (ajuste o caminho do template para onde você
-  clonou).
+- **Clonar o repo:** `git clone https://github.com/Artur-Antunes-1/diretriz-gzero.git`
+  e usar os prompts prontos do `COMO-INICIAR.md` (ajuste o caminho do template
+  para onde você clonou).
 - **Só o prompt:** copie o prompt de "Projeto novo" do `COMO-INICIAR.md`,
   troque o caminho do template pela URL deste repositório e peça ao Claude para
-  clonar e copiar — ele faz sozinho.
+  clonar e copiar. Ele faz sozinho.
 
 ## O que esperar
 
