@@ -80,26 +80,35 @@ a{color:var(--gz-rosa-spray)}
 /* estrela de 8 pontas — glifo-assinatura */
 .star8{display:inline-block;width:1em;height:1em;vertical-align:-0.1em}
 
-/* ---------- ILUSTRAÇÕES ---------- */
+/* ---------- ILUSTRAÇÕES (auxiliares, pequenas, na lateral) ---------- */
 .hero-art{
-  width:min(520px,88%);display:block;margin:38px auto 4px;position:relative;
+  width:190px;aspect-ratio:1;object-fit:cover;display:block;
   border-radius:var(--gz-radius-sticker);
-  transform:rotate(-1.2deg);
-  box-shadow:0 0 22px rgba(232,56,168,.4),0 0 48px rgba(232,56,168,.18);
+  transform:rotate(2.5deg);
+  box-shadow:0 0 18px rgba(232,56,168,.45),0 0 40px rgba(232,56,168,.2);
+  position:absolute;right:6%;top:170px;
 }
-.prancha{ /* prancha ilustrada com filete duplo de decreto */
-  margin:30px 0 6px;background:var(--gz-branco-reserva);
-  border:3px double var(--gz-rosa-spray);
+@media (max-width:1100px){
+  .hero-art{position:static;margin:30px auto 0;width:160px;transform:rotate(-2deg)}
+}
+.aux-fig{ /* quadradinho auxiliar da margem, como um adesivo colado */
+  margin:0 0 40px;transform:rotate(1.8deg);
+}
+.aux-fig img{
+  display:block;width:100%;max-width:190px;aspect-ratio:1;object-fit:contain;
+  background:var(--gz-branco-reserva);
+  border:3px double var(--gz-rosa-spray);padding:4px;
   box-shadow:var(--gz-shadow-sticker);
-  padding:8px;
 }
-.prancha img{display:block;width:100%}
-.prancha figcaption{
+.aux-fig figcaption{
   font-family:var(--gz-font-lettering);color:var(--gz-teal-marginalia);
-  font-size:1.02rem;padding:10px 6px 4px;text-align:center;
+  font-size:.95rem;line-height:1.3;padding-top:8px;max-width:190px;
+}
+@media (max-width:860px){
+  .aux-fig{transform:rotate(-1.5deg);margin:10px 0 30px}
 }
 .spray-art{
-  width:150px;flex-shrink:0;transform:rotate(3deg);
+  width:150px;aspect-ratio:1;object-fit:cover;flex-shrink:0;transform:rotate(3deg);
   border-radius:var(--gz-radius-sticker);
   box-shadow:0 0 18px rgba(232,56,168,.45);
 }
@@ -388,7 +397,7 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
   <h1><span class="eco" data-t="DIRETRIZ">DIRETRIZ</span></h1>
   <span class="assinatura">de desenvolvimento gzero</span>
   <p class="promessa">Você imagina. A inteligência artificial constrói. E <strong>nada se perde no caminho</strong>.</p>
-  <img class="hero-art" src="img/hero-astronauta.webp" alt="Menino-astronauta com gorro de bobo da corte flutuando em gravidade zero, abraçado a um caderno rosa que brilha, cercado de estrelas de oito pontas" width="1024" height="768">
+  <img class="hero-art" src="img/hero-astronauta.webp" alt="Menino-astronauta com gorro de bobo da corte flutuando em gravidade zero, abraçado a um caderno rosa que brilha" width="1024" height="1024">
   <div class="cta-row">
     <a class="btn btn-rosa" href="#comecar">Quero usar</a>
     <a class="btn btn-ghost" href="#oque">Entender primeiro</a>
@@ -421,17 +430,12 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
         <p>É a única palavra que você precisa dizer para o trabalho seguir de onde parou — em qualquer dia, em qualquer sessão.</p>
       </div>
     </div>
-
-    <figure class="prancha">
-      <img src="img/prancha-lousa.webp" alt="Ilustração: uma lousa escolar sendo apagada por um apagador travesso, e ao lado um caderno rosa de coroa guardando corações e estrelas em segurança" width="1280" height="832">
-      <figcaption>a tese inteira num desenho: a lousa apaga, o caderno guarda.</figcaption>
-    </figure>
   </div>
   <aside class="margem">
-    <div class="nota-margem">
-      <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 4 C20 2, 8 12, 5 28 M5 28 l-2 -8 M5 28 l8 -3"/></svg>
-      a lousa apaga.<br>o caderno, não!
-    </div>
+    <figure class="aux-fig">
+      <img src="img/prancha-lousa.webp" alt="Ilustração: uma lousa sendo apagada por um apagador travesso, e um caderno rosa de coroa guardando corações e estrelas" width="1024" height="1024">
+      <figcaption>a lousa apaga.<br>o caderno, não!</figcaption>
+    </figure>
     <div class="nota-margem">
       <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 6 C24 10, 12 16, 6 30 M6 30 l-1 -8 M6 30 l8 -2"/></svg>
       uma palavra.<br>sério: UMA.
@@ -534,11 +538,6 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
 
     <p class="abre">Nada aqui é mágica: é uma pequena máquina de arquivos. Cada peça tem um papel; juntas, elas formam a memória permanente que a conversa não tem.</p>
 
-    <figure class="prancha">
-      <img src="img/prancha-maquina.webp" alt="Ilustração: uma máquina de circo com manivela girada por um bobo da corte; balões de conversa entram por um funil e saem arquivos rosa organizados e um cofre" width="1280" height="832">
-      <figcaption>conversa entra, memória organizada sai. a manivela nunca para.</figcaption>
-    </figure>
-
     <div class="maquina">
       <div class="peca">
         <span class="arquivo">CLAUDE.md</span>
@@ -597,6 +596,10 @@ footer small{font-family:var(--gz-font-codigo);font-size:.78rem;color:#5A5352;le
     </dl>
   </div>
   <aside class="margem">
+    <figure class="aux-fig">
+      <img src="img/prancha-maquina.webp" alt="Ilustração: uma máquina de circo com manivela girada por um bobo; balões de conversa entram por um funil e saem arquivos rosa organizados e um cofre" width="1024" height="1024">
+      <figcaption>conversa entra,<br>memória sai.</figcaption>
+    </figure>
     <div class="nota-margem">
       <svg class="seta" viewBox="0 0 46 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M42 4 C20 2, 8 12, 5 28 M5 28 l-2 -8 M5 28 l8 -3"/></svg>
       8 peças. só isso.<br>e roda em qualquer pasta.
