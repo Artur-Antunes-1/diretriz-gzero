@@ -46,33 +46,19 @@
   --gz-indigo-noite:#483868;
   --gz-poeira-estrela:#F8F8A8;
 
-  /* DESKTOP: o visual "clássico" aprovado pelo Artur — as fontes de sistema
-     que o Windows usava quando os subsets antigos falhavam (Impact, Segoe
-     Script, Segoe UI). No celular/touch (regra @media abaixo), entram as
-     fontes web completas da marca, que funcionam no iPhone. */
-  --gz-font-corpo:"Segoe UI",system-ui,sans-serif;
-  --gz-font-display:Impact,"Arial Narrow","Avenir Next Condensed",sans-serif;
-  --gz-font-lettering:"Segoe Script","Bradley Hand",cursive;
-  --gz-font-slab:Rockwell,"Times New Roman",serif;
-  --gz-font-vhs:Consolas,"Courier New",monospace;
+  /* Tipografia real da marca em todas as plataformas (decisão de Artur).
+     Para voltar ao visual "clássico" de sistema no desktop, ver commit 5223b0b. */
+  --gz-font-corpo:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --gz-font-display:"Tanker","Avenir Next Condensed",Impact,"Arial Narrow",sans-serif;
+  --gz-font-lettering:"Shantell Sans","Bradley Hand","Segoe Script",cursive;
+  --gz-font-slab:"Hepta Slab",Rockwell,"Times New Roman",serif;
+  --gz-font-vhs:"VT323","Courier New",monospace;
   --gz-font-codigo:"Menlo","Consolas","Courier New",monospace;
 
   --gz-glow-neon:0 0 12px rgba(232,56,168,.75),0 0 28px rgba(232,56,168,.45);
   --gz-shadow-sticker:0 6px 18px rgba(35,31,32,.18);
   --gz-radius-sticker:20px;
   --gz-measure:52ch;
-}
-
-/* CELULAR/TOUCH: fontes web completas da marca (funcionam no iPhone).
-   Só aqui os arquivos .woff2 são baixados — no desktop, nada muda. */
-@media (pointer:coarse), (max-width:768px){
-  :root{
-    --gz-font-corpo:"Atkinson Hyperlegible",system-ui,sans-serif;
-    --gz-font-display:"Tanker","Avenir Next Condensed",Impact,"Arial Narrow",sans-serif;
-    --gz-font-lettering:"Shantell Sans","Bradley Hand","Segoe Script",cursive;
-    --gz-font-slab:"Hepta Slab",Rockwell,"Times New Roman",serif;
-    --gz-font-vhs:"VT323","Courier New",monospace;
-  }
 }
 
 *{box-sizing:border-box;margin:0}
